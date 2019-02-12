@@ -33,12 +33,19 @@ class App extends Component {
   }
 
   async handleSubmit(event) {
+    this.setState({
+      blocks: {},
+      isListening: null,
+      networkType: null,
+      latestBlock: null,
+      loading: true
+    });
     event.preventDefault();
     const web3 = new Web3(this.state.url);
     window.web3 = web3;
     const isListening = await web3.eth.net.isListening();
     const networkType = await web3.eth.net.getNetworkType();
-    this.setState({ isListening, networkType });
+    this.setState({ isListening, networkType, loading: false });
     const latestBlock = await web3.eth.getBlockNumber();
     this.setState({ latestBlock });
 
@@ -118,6 +125,7 @@ class App extends Component {
               </div>
             </div>
           </form>
+          {this.state.loading ? <p>Loading...</p> : null}
           {this.state.isListening && (
             <React.Fragment>
               <p>
