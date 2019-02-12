@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/is-my-node-fully-synced/precache-manifest.67389ba2106cd2f00e6a11a77e264428.js"
+  "/is-my-node-fully-synced/precache-manifest.928acd51205c6c7c283e30d522cbcbce.js"
 );
 
 workbox.clientsClaim();
